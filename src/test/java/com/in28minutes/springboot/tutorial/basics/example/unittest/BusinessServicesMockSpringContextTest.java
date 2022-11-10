@@ -1,10 +1,11 @@
 package com.in28minutes.springboot.tutorial.basics.example.unittest;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import com.in28minutes.springboot.tutorial.basics.example.unittesting.BusinessService;
-import com.in28minutes.springboot.tutorial.basics.example.unittesting.DataService;
+import com.in28minutes.springboot.tutorial.basics.example.unittesting.BusinessServiceTest;
+import com.in28minutes.springboot.tutorial.basics.example.unittesting.DataServiceTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class BusinessServicesMockSpringContextTest {
 
     @MockBean
-    DataService dataServiceMock;
+    DataServiceTest dataServiceMock;
 
     @Autowired
-    BusinessService businessImpl;
+    BusinessServiceTest businessImpl;
 
     @Test
     public void testFindTheGreatestFromAllData() {
@@ -38,5 +39,13 @@ public class BusinessServicesMockSpringContextTest {
     public void testFindTheGreatestFromAllData_NoValues() {
         when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{});
         assertEquals(Integer.MIN_VALUE, businessImpl.findTheGreatestFromAllData());
+    }
+
+    @Test
+    public void testFindTheGreatestFromAllData2() {
+        int[] returnData = new int[]{1, 2, 3, 4, 5};
+        /*
+        when(dataServiceMock.retrieveAllData()).thenReturn(returnData);*/
+        assertArrayEquals(new DataServiceTest().retrieveAllData(), returnData);
     }
 }

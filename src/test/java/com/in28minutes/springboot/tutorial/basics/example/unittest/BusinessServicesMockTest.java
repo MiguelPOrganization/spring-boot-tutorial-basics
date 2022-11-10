@@ -3,8 +3,8 @@ package com.in28minutes.springboot.tutorial.basics.example.unittest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import com.in28minutes.springboot.tutorial.basics.example.unittesting.BusinessService;
-import com.in28minutes.springboot.tutorial.basics.example.unittesting.DataService;
+import com.in28minutes.springboot.tutorial.basics.example.unittesting.BusinessServiceTest;
+import com.in28minutes.springboot.tutorial.basics.example.unittesting.DataServiceTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,10 +15,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class BusinessServicesMockTest {
 
     @Mock
-    DataService dataServiceMock;
+    DataServiceTest dataServiceMock;
 
     @InjectMocks
-    BusinessService businessImpl;
+    BusinessServiceTest businessImpl;
 
     @Test
     public void testFindTheGreatestFromAllData() {
