@@ -29,7 +29,9 @@ jobs:
             echo "A initial message"
             curl -Os https://uploader.codecov.io/latest/linux/codecov 
             chmod +x codecov
-            ls
+            ls ./target
+            ls ./target/site
+            ls ./target/site/jacoco
             ./codecov -t ${{ secrets.CODECOV_TOKEN }} -f ./target/site/jacoco/jacoco.xml
           
           
