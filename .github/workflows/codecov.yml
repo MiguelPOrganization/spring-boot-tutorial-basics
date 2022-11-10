@@ -1,5 +1,11 @@
 name: Workflow for Codecov example-java-maven
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -16,3 +22,5 @@ jobs:
         run: mvn -B test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
