@@ -3,11 +3,11 @@ package com.in28minutes.springboot.tutorial.basics.example.unittesting;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BusinessService {
+public class BusinessServiceTest {
 
-    private final DataService dataService;
+    private final DataServiceTest dataService;
 
-    public BusinessService(DataService dataService) {
+    public BusinessServiceTest(DataServiceTest dataService) {
         super();
         this.dataService = dataService;
     }

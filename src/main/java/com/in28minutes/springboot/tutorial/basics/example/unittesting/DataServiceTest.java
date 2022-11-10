@@ -3,7 +3,7 @@ package com.in28minutes.springboot.tutorial.basics.example.unittesting;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DataService {
+public class DataServiceTest {
     public int[] retrieveAllData() {
         // Some dummy data
         // Actually this should talk to some database to get all the data
