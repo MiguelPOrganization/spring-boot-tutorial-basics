@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class SpringBootTutorialBasicsApplication {
 
-    //This is a test ft
+    //This is a test ft 1
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(SpringBootTutorialBasicsApplication.class, args);
 
