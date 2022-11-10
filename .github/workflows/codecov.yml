@@ -5,9 +5,9 @@ on:
       - master
   pull_request_target:
     types: [opened, synchronize, reopened]
-    
+
 jobs:
-  run:
+  codecov:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,10 +17,15 @@ jobs:
         with:
           java-version: 11
       - name: Install dependencies
-        run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+        run: mvn install
       - name: Run tests and collect coverage
         run: mvn -B test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./target/site/jacoco/jacoco.xml
+          
+          
+          
+          
