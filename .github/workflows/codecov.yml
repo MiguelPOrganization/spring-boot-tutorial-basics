@@ -10,12 +10,6 @@ jobs:
   codecov:
     runs-on: ubuntu-latest
     steps:
-      - name: run-ubuntu-codecov
-        run: |
-            echo "A initial message"
-            curl -Os https://uploader.codecov.io/latest/linux/codecov 
-            chmod +x codecov 
-            ./codecov -t ${{ secrets.CODECOV_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -30,7 +24,13 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          
+      - name: run-ubuntu-codecov
+        run: |
+            echo "A initial message"
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
+            chmod +x codecov
+            ls
+            ./codecov -t ${{ secrets.CODECOV_TOKEN }}
           
           
           
