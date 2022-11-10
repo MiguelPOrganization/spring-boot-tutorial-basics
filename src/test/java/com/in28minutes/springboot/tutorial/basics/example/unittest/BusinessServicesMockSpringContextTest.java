@@ -1,5 +1,6 @@
 package com.in28minutes.springboot.tutorial.basics.example.unittest;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -38,5 +39,13 @@ public class BusinessServicesMockSpringContextTest {
     public void testFindTheGreatestFromAllData_NoValues() {
         when(dataServiceMock.retrieveAllData()).thenReturn(new int[]{});
         assertEquals(Integer.MIN_VALUE, businessImpl.findTheGreatestFromAllData());
+    }
+
+    @Test
+    public void testFindTheGreatestFromAllData2() {
+        int[] returnData = new int[]{1, 2, 3, 4, 5};
+        /*
+        when(dataServiceMock.retrieveAllData()).thenReturn(returnData);*/
+        assertArrayEquals(new DataServiceTest().retrieveAllData(), returnData);
     }
 }
