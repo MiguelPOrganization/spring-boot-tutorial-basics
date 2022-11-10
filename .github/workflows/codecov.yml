@@ -30,7 +30,7 @@ jobs:
             curl -Os https://uploader.codecov.io/latest/linux/codecov 
             chmod +x codecov
             ls
-            ./codecov -t ${{ secrets.CODECOV_TOKEN }}
+            ./codecov -t ${{ secrets.CODECOV_TOKEN }} -f ./target/site/jacoco/jacoco.xml
           
           
           
