@@ -15,7 +15,7 @@ jobs:
             echo "A initial message"
             curl -Os https://uploader.codecov.io/latest/linux/codecov 
             chmod +x codecov 
-            ./codecov
+            ./codecov -t ${{ secrets.CODECOV_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up JDK 11
